@@ -55,8 +55,8 @@ removeButton.addEventListener("click", () => {
 resetButton.addEventListener("click", () => {
   if (confirm("¿Estás seguro que deseas reiniciar la lista?")) {
     localStorage.removeItem("mainList");
-    mainList.length = 0; // Vacía el array
-    productList.innerHTML = ""; // Limpia la lista visualmente
+    mainList.length = 0; 
+    productList.innerHTML = ""; 
     alert("¡Lista reiniciada!");
   }
 });
