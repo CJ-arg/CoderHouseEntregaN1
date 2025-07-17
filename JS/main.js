@@ -5,6 +5,7 @@ const addButton = document.getElementById("addBtn");
 const removeButton = document.getElementById("removeBtn");
 const showButton = document.getElementById("showBtn");
 const productList = document.getElementById("productList");
+const hideButton = document.getElementById("hideBtn");
 
 
 const addProduct = (product) => {
@@ -63,7 +64,6 @@ resetButton.addEventListener("click", () => {
 
 showButton.addEventListener("click", renderList);
 
-const hideButton = document.getElementById("hideBtn");
 
 hideButton.addEventListener("click", () => {
   productList.innerHTML = "";
