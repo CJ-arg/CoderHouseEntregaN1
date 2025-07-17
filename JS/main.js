@@ -1,76 +1,72 @@
-const mainList = [];
+const mainList = JSON.parse(localStorage.getItem("mainList")) || [];
+const resetButton = document.getElementById("resetBtn");
+const inputProduct = document.getElementById("productInput");
+const addButton = document.getElementById("addBtn");
+const removeButton = document.getElementById("removeBtn");
+const showButton = document.getElementById("showBtn");
+const productList = document.getElementById("productList");
 
-const addProduct = (list) => {
-    let productInput = prompt("Ingresa un Producto para agregar");
-    if (productInput) {
-        list.push(productInput);
-        alert(`Producto "${productInput}" agregado a la lista.`);
-    } else {
-        alert("No se ingresó ningún producto.");
-    }
+
+const addProduct = (product) => {
+  if (product.trim() !== "") {
+    mainList.push(product.trim());
+    inputProduct.value = "";
+    saveList();
+  }
 };
 
-const removeProduct = (list) => {
-    if (list.length === 0) {
-        alert("La lista está vacía, no hay productos para eliminar.");
-        return;
+const removeProduct = (productToRemove) => {
+  const index = mainList.indexOf(productToRemove.trim());
+  if (index !== -1) {
+    mainList.splice(index, 1);
+    saveList();
+  } else {
+    alert(`El producto "${productToRemove}" no está en la lista.`);
+  }
+};
+
+const renderList = () => {
+  productList.innerHTML = "";
+  if (mainList.length === 0) {
+    productList.innerHTML = "<li>La lista está vacía.</li>";
+  } else {
+    for (let i = 0; i < mainList.length; i++) {
+      const li = document.createElement("li");
+      li.textContent = `${i + 1}. ${mainList[i]}`;
+      productList.appendChild(li);
     }
-    let productOutput = prompt("Ingresa el producto que deseas eliminar");
-    let index = list.indexOf(productOutput);
-    if (index !== -1) {
-        list.splice(index, 1);
-        alert(`Producto "${productOutput}" eliminado de la lista.`);
-    } else {
-        alert(`El producto "${productOutput}" no está en la lista.`);
-    }
+  }
 };
 
 
-const showList = (list) => {
-    if (list.length === 0) {
-        alert("La lista está vacía.");
-    } else {
-        let listText = "🛒 Lista de Compras:\n\n";
-        for (let i = 0; i < list.length; i++) {
-            listText += `${i + 1}. ${list[i]}\n`;
-        }
-        alert(listText);
-    }
+const saveList = () => {
+  localStorage.setItem("mainList", JSON.stringify(mainList));
 };
 
+addButton.addEventListener("click", () => {
+  addProduct(inputProduct.value);
+});
 
-const startSimulator = () => {
-    let option = "";
+removeButton.addEventListener("click", () => {
+  removeProduct(inputProduct.value);
+  renderList();
+});
 
-    while (option !== "4") {
-        option = prompt(
-            "Selecciona una opción:\n1 - Agregar producto\n2 - Eliminar producto\n3 - Mostrar lista\n4 - Salir"
-        );
+resetButton.addEventListener("click", () => {
+  if (confirm("¿Estás seguro que deseas reiniciar la lista?")) {
+    localStorage.removeItem("mainList");
+    mainList.length = 0; // Vacía el array
+    productList.innerHTML = ""; // Limpia la lista visualmente
+    alert("¡Lista reiniciada!");
+  }
+});
 
-        switch (option) {
-            case "1":
-                addProduct(mainList);
-                break;
-            case "2":
-                removeProduct(mainList);
-                break;
-            case "3":
-                showList(mainList);
-                break;
-            case "4":
-                const confirmExit = confirm("¿Estás seguro que deseas salir?");
-                if (confirmExit) {
-                    alert("Gracias por usar el simulador de lista de compras.\nDeberás reiniciar la página para volver a usarlo.");
-                } else {
-                    option = "";
-                }
-                break;
-            default:
-                alert("Opción no válida. Intenta nuevamente.");
-                break;
-        }
-    }
-};
+showButton.addEventListener("click", renderList);
 
-startSimulator(); 
+const hideButton = document.getElementById("hideBtn");
+
+hideButton.addEventListener("click", () => {
+  productList.innerHTML = "";
+});
+
 

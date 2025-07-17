@@ -1,0 +1,91 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #add8e6; /* fondo celeste */
+  font-family: Arial, sans-serif;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  text-align: center;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 500px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+input[type="text"] {
+  padding: 0.5rem;
+  width: 60%;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  margin: 0.5rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: #cad1d9;
+  color: white;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+h2 {
+  margin-top: 1.5rem;
+  color: #333;
+}
+
+ul {
+  margin-top: 1rem;
+  text-align: left;
+  list-style-type: disc;
+  padding-left: 1.5rem;
+}
+
+li {
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+#resetBtn {
+  display: block;
+  margin: 2rem auto 0 auto;
+  width: 90%;
+  max-width: 500px;
+  padding: 0.5rem 0;
+  font-size: 1rem;
+  border: none;
+  border-radius: 10px;
+  background-color: #dc3545;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+#resetBtn:hover {
+  background-color: #a71d2a;
+}

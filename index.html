@@ -4,34 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coder JS Janon Carlos</title>
-     <style>
-        body {
-            background-color: #add8e6;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-        h1 {
-            font-size: 4rem;
-            text-align: center;
-            color: black;
-        }
-        p {
-            font-size: 2rem;
-            text-align: center;
-            margin-top: 1rem;
-                  }
-    </style>
+    <link rel="stylesheet" href="CSS/style.css" />
 </head>
 <body>
-    <h1>Bienvenido a la  </h1>
-
-    <h1>lista de Carlos</h1>
+    <main>   
+        <h1>Lista de Compras de Carlos</h1>
     
-    <h3>aguarda un momento...</h3>
+    <section id="form-section">
+      <input type="text" id="productInput" placeholder="Ingresar producto..." />
+      <button id="addBtn">➕</button>
+      <button id="removeBtn">❌</button>
+    </section>
+    <section>
+      <button id="showBtn">Mostrar Lista</button>
+      <button id="hideBtn">Ocultar Lista</button>
+    </section>
+        <section>
+      <h2>🛒</h2>
+       <h2>Productos:</h2>
+      <ul id="productList"></ul>
+    </section>
+    <button id="resetBtn">Reset</button>
+</main>
+ 
 
     <script defer src="JS/main.js"></script>
 </body>
