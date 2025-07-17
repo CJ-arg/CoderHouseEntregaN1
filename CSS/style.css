@@ -16,7 +16,7 @@ body {
 main {
   text-align: center;
   padding: 2rem;
-  background-color: white;
+  background-color: rgb(202, 241, 252);
   border-radius: 20px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   width: 90%;
@@ -24,9 +24,9 @@ main {
 }
 
 h1 {
-  font-size: 2.5rem;
+  font-size: 2rem;
   color: #333;
-  margin-bottom: 1rem;
+  margin-bottom: 3rem;
 }
 
 input[type="text"] {
@@ -45,7 +45,7 @@ button {
   border: none;
   border-radius: 10px;
   cursor: pointer;
-  background-color: #cad1d9;
+  background-color: #61ade3;
   color: white;
   transition: background-color 0.2s;
 }
